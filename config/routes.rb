@@ -1,6 +1,7 @@
 OCS::Application.routes.draw do
   #get "users/new"
   get '/users/edit' 
+  get '/users/displayallusers' 
    
   resources :users
 
