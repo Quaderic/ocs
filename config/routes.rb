@@ -1,12 +1,16 @@
 OCS::Application.routes.draw do
-  #get "users/new"
   get '/users/edit' 
-  get '/users/displayallusers' 
+  #get '/users/displayallusers' 
    
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signup', to: 'users#new', via: :get
+  match '/signin', to: 'sessions#new', via: :get
+  match '/displayallusers', to: 'users#displayallusers', via: :get
+  match '/signout', to: 'sessions#destroy', via: :delete
 
-# get '/users/:id', to: 'users#show'
- #root to: "users#show"
+
+ root to: "users#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

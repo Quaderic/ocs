@@ -9,7 +9,6 @@ gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-#gem 'sass-rails', '~> 3.2.3'
 gem 'bootstrap-sass', '2.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -17,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-#gem 'coffee-rails', '~> 3.2.3'
+
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -48,9 +47,22 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :development do
+group :development, :test do
       gem 'annotate', '~>2.4.1.beta'
       #gem 'rspec-rails', '2.9.0'
       gem 'rspec-rails'
+
+end
+
+group :test do
+gem 'capybara', '1.1.2'
+gem 'factory_girl_rails' #, '1.4.0'
+
+end
+
+
+group :production do
+#gem 'pg', '0.12.2'
+gem 'pg'
 
 end

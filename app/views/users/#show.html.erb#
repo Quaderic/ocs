@@ -12,3 +12,4 @@
 </aside>
 </div>
 <div> CurrenWhat: <%= @user.remember_token %></div>
+<div> The Curren User: <%= @user.remember_token %></div>
