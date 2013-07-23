@@ -10,7 +10,7 @@ OCS::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
 
- root to: "users#index"
+ root to: "users#home"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

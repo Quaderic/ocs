@@ -1,7 +1,11 @@
-<div class="center hero-unit">
-<h1>Welcome to OCS App</h1>
-<h2>
-Nothing Special
-</h2>
-<%= link_to "Sign up now!", "/signup", class: "btn btn-large btn-primary" %>
-</div>
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+<%= will_paginate %>
+
+<ul class="users">
+  <% @users.each do |user| %>
+  <%= render user %>
+  <% end %>
+  
+</ul>
+<%= will_paginate %>
