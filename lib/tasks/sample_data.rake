@@ -3,8 +3,8 @@ desc "Fill database with sample data"
 task populate: :environment do
 admin = User.create!(first_name: "Erik",last_name: "Kuada",
 email: "erickuada@yahoo.com",
-password: "foobar",
-password_confirmation: "foobar")
+password: "ClassA",
+password_confirmation: "ClassA92")
 admin.toggle!(:admin)
 
 99.times do |n|
