@@ -6,6 +6,8 @@ gem 'rails_12factor'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 
+gem 'deltacloud-client'
+
 # Use SCSS for stylesheets
 #gem 'bootstrap-sass', '2.0.0'
 gem 'bootstrap-sass'

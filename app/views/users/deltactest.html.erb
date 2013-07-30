@@ -1,0 +1,34 @@
+<% provide(:title, 'Deltacloud Test') %>
+<h1>A Deltacloud Tester</h1>
+<% @api_url = "http://localhost:3001/api"%>   
+
+<%client = Deltacloud::Client(@api_url, 'mockuser', 'mockpassword') %>
+
+<h3>These are the realms <%= @realm = client.realms %></h3>
+
+
+<% @instances = client.instances %>
+
+<h5> 
+<table>
+  <tr>
+    <th>Instance Id </th>
+    <th>Name</th>
+    <th>State</th>
+    <th>Hardware Profile</th>
+    <th>Actions</th>
+  </tr>
+ 
+<% @instances.each do |instance| %>
+  <tr>
+    <td><%= instance.image_id %></td>
+    <td><%= instance.private_addresses %></td>
+    <td><%= instance.state %></td>
+    <td><%= instance.hardware_profile_id %></td>
+    <td><%= instance.actions %></td>
+    </tr>
+<% end %>
+</table>
+ 
+<br />
+</h5>

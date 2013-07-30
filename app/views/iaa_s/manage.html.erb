@@ -1,0 +1,41 @@
+<h1>Manage VM</h1>
+<% @api_url = "http://localhost:3001/api"%>   
+<% client = Deltacloud::Client(@api_url, 'mockuser', 'mockpassword') %>
+
+<div>
+  <table>
+    <h5>
+      <tr>
+	<th>Image Id </th>
+	<th>private Address</th>
+	<th>State</th>
+	<th>Actions</th>
+      </tr>
+    </h5>
+    <tr>
+      <td><%= @instance.image_id %></td>
+      <td><%= @instance.private_addresses %></td>
+      <td><%= @instance.state %></td>
+      
+      <td>
+	<table> 
+	  <tr> 
+	    <% @instance.actions.each do |vm_action| %>
+	    <% myaction = vm_action %>
+	    <% if (myaction.to_s == "destroy") then myaction = "myfriend" end %>
+	    <td> <%= link_to vm_action, :action => myaction, :controller =>'iaa_s', id: @instance._id %>
+	    </td>
+	    <% end %> 
+	  <tr> 
+	</table>  
+      </td>
+    </tr>
+    
+  
+</table>
+</div>
+<div>
+<%= link_to 'New Instance ', :action => 'new', :controller =>'iaa_s' %>
+<%= link_to 'View Instances', :action => 'index', :controller =>'iaa_s' %>
+</div>
+

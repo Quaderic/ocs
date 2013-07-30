@@ -1,0 +1,20 @@
+<h1>TO Create New VM instance</h1>
+
+<% @api_url = "http://localhost:3001/api"%>   
+
+<%client = Deltacloud::Client(@api_url, 'mockuser', 'mockpassword') %>
+<%@hwprofiles = client.hardware_profiles%>
+
+<%= form_tag("create", :method=>"post") do %>
+
+<p><b>all collection for selected</b></p>
+<%= label_tag(:q, "Select Hardware Profile:") %>
+<%= collection_select("deals",:hwp, @hwprofiles, :id, :name) %>
+<%= label_tag(:q, "Select Hardware Profile:") %>
+<%= text_field_tag(:iname, "Enter name of VM") %>
+
+<%= submit_tag("Create Instance") %>
+<% end %>
+
+
+<%= link_to 'View Instance', :action => 'index', :controller =>'iaa_s' %>

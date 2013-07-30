@@ -1,0 +1,36 @@
+<% provide(:title, 'Deltacloud Test') %>
+<h1>VM Instancess</h1>
+<% @api_url = "http://localhost:3001/api"%>   
+
+<%client = Deltacloud::Client(@api_url, 'mockuser', 'mockpassword') %>
+
+
+<% @instances = client.instances %>
+
+<h5> 
+<table>
+  <tr>
+    <th>Instance Id </th>
+    <th>Name</th>
+    <th>State</th>
+    <th>Hardware Profile</th>
+    <th>Actions</th>
+  </tr>
+</h5>
+ 
+<% @instances.each do |instance| %>
+  <tr>
+    <td><%= instance.image_id %></td>
+    <td><%= instance.private_addresses %></td>
+    <td><%= instance.state %></td>
+    <td><%= instance.hardware_profile_id %></td>
+    <td><%= instance.actions %></td>
+    <td><%= link_to 'manage Vm', :action => 'manage', :controller =>'iaa_s', id: instance._id %> </td>
+    </tr>
+<% end %>
+</table>
+ 
+<br />
+
+<%= link_to 'New Instance', :action => 'new', :controller =>'iaa_s' %>
+

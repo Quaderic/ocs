@@ -1,13 +1,28 @@
 OCS::Application.routes.draw do
+ # get "iaa_s/new"
+  #get "iaa_s/edit"
+  match '/iaa_s/destroy', to: 'iaa_s#destroy', via: :delete
+  match '/iaa_s/myfriend', to: 'iaa_s#myfriend', via: :get
+  get "iaa_s/manage"
+  get "iaa_s/start"
+  get "iaa_s/run"
+  get "iaa_s/create_image"
+  get "iaa_s/stop"
+  get "iaa_s/reboot"
+  get "iaa_s/show"
+  post "iaa_s/create"
   get '/users/edit' 
   #get '/users/displayallusers' 
    
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :iaa_s
   match '/signup', to: 'users#new', via: :get
   match '/signin', to: 'sessions#new', via: :get
   match '/displayallusers', to: 'users#displayallusers', via: :get
+  match '/deltactest', to: 'users#deltactest', via: :get
   match '/signout', to: 'sessions#destroy', via: :delete
+
 
 
  root to: "users#home"
